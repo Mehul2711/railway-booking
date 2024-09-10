@@ -1,0 +1,32 @@
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+
+  <h3>Book Your Seats</h3>
+
+  <input
+    type="number"
+    [(ngModel)]="numSeats"
+    placeholder="Enter number of seats"
+  />
+  <button (click)="reserveSeats(numSeats)">Book Seats</button>
+
+  <div *ngIf="bookedSeats.length > 0">
+    <h4>Booked Seats:</h4>
+    <ul>
+      <li *ngFor="let seat of bookedSeats">{{ seat }}</li>
+    </ul>
+  </div>
+
+  <h4>Seat Layout:</h4>
+  <div *ngFor="let row of seats; let i = index" class="row">
+    <div
+      *ngFor="let seat of row; let j = index"
+      [ngClass]="{ available: seat === 0, booked: seat === 1 }"
+      class="seat"
+    >
+      Row {{ i + 1 }} Seat {{ j + 1 }} ({{
+        seat === 0 ? 'Available' : 'Booked'
+      }})
+    </div>
+  </div>
+</div>

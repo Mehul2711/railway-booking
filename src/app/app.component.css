@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.seat {
+  padding: 10px;
+  margin-right: 5px;
+  border: 1px solid black;
+}
+
+.available {
+  background-color: lightgreen;
+}
+
+.booked {
+  background-color: lightcoral;
+}
